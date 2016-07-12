@@ -1,45 +1,60 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.mikero</groupId>
-  <artifactId>mp3namer</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  
-    <dependencies>
-  	<!-- Comes from https://github.com/mpatric/mp3agic -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.mikero</groupId>
+	<artifactId>mp3namer</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<dependencies>
+		<!-- Comes from https://github.com/mpatric/mp3agic -->
 		<dependency>
 			<groupId>com.mpatric</groupId>
 			<artifactId>mp3agic</artifactId>
 			<version>0.8.2</version>
 		</dependency>
-  </dependencies>
-  
-  <build>
-  	<plugins>
-	<plugin>
-		<artifactId>maven-assembly-plugin</artifactId>
-		<executions>
-			<execution>
-				<phase>package</phase>
-				<goals>
-					<goal>single</goal>
-				</goals>
-			</execution>
-		</executions>
-		<configuration>
 
-			<archive>
-				<manifest>
-					<addClasspath>true</addClasspath>
-					<mainClass>com.mikero.mp3renamer.ReadFromMusicFile</mainClass>
-				</manifest>
-			</archive>
+		<dependency>
+			<groupId>org.yaml</groupId>
+			<artifactId>snakeyaml</artifactId>
+			<version>1.17-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
 
-			<descriptorRefs>
-				<descriptorRef>jar-with-dependencies</descriptorRef>
-			</descriptorRefs>
+	<repositories>
+		<repository>
+			<id>Sonatype-public</id>
+			<name>SnakeYAML repository</name>
+			<url>http://oss.sonatype.org/content/groups/public/</url>
+		</repository>
+	</repositories>
 
-		</configuration>
-	</plugin>
-  	</plugins>
-  </build>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<mainClass>com.mikero.mp3renamer.ReadFromMusicFile</mainClass>
+						</manifest>
+					</archive>
+
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
