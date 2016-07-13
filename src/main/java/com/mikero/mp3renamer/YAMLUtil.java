@@ -15,18 +15,13 @@ import java.util.Map;
  *
  */
 public class YAMLUtil {
-	public static void parseYAML(){
-		String fullfilename =
-				System.getProperty("mp3folder") //$NON-NLS-1$
-				+ File.separator
-				+ "config.yml";
+	public static void parseYAML(String fullfilename){
 
 		File newConfiguration = new File(fullfilename);
 		InputStream is = null;
 		try {
 			is = new FileInputStream(newConfiguration);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -34,6 +29,6 @@ public class YAMLUtil {
 		Yaml yaml = new Yaml();
 
 	    @SuppressWarnings("unchecked")
-	    Map<String, ArrayList> yamlParsers = (Map<String, ArrayList>) yaml.load(is);	    
+	    Map<String, Object> yamlParsers = (Map<String, Object>) yaml.load(is);	    
 	}
 }
