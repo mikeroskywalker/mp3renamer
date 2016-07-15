@@ -17,10 +17,9 @@ public class ReadFromMusicFile {
 	 * @throws NotSupportedException 
 	 */
 	public static void main(String[] args) throws NotSupportedException {
-		final String mp3FolderPath = args[0];
-		
-		String mp3TargetFolderPath = args[1];
+		String yamlPath = args[0];
 
+		YAMLUtil.parseYAML(yamlPath);
 		File folderName = new File(mp3FolderPath);
 		final String mp3Extension = ".mp3";
 		
