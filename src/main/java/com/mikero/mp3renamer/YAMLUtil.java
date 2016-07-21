@@ -7,8 +7,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
-import java.util.Map;
-
 import org.yaml.snakeyaml.Yaml;
 
 /**
@@ -16,7 +14,7 @@ import org.yaml.snakeyaml.Yaml;
  *
  */
 public class YAMLUtil {
-	public static void parseYAML(String fullfilename){
+	public static Config parseYAML(String fullfilename){
 
 		File newConfiguration = new File(fullfilename);
 		InputStream is = null;
@@ -29,7 +27,7 @@ public class YAMLUtil {
 
 		Yaml yaml = new Yaml();
 
-	    @SuppressWarnings("unchecked")
-	    Map<String, Object> yamlParsers = (Map<String, Object>) yaml.load(is);	    
+	    Config config =  yaml.loadAs(is, Config.class);
+	    return config;
 	}
 }
